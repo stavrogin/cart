@@ -82,7 +82,7 @@ public abstract class GoodBase implements Good {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("1");
+		sb.append(getQuantity());
 		if (imported) {
 			sb.append(" imported");
 		}
