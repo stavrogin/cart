@@ -43,5 +43,13 @@ public class Cart {
 		System.out.println("Total: " + total);
 		System.out.println();
 	}
+
+	public BigDecimal getSalesTaxes() {
+		return salesTaxes;
+	}
+
+	public BigDecimal getTotal() {
+		return total;
+	}
 	
 }

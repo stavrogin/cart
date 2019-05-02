@@ -14,6 +14,12 @@ public abstract class GoodBase implements Good {
 	private String description;
 	private BigDecimal rawPrice;
 	private boolean imported;
+	private int quantity;
+
+	@Override
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	
 	@Override
 	public void setDescription(String description) {
@@ -47,11 +53,30 @@ public abstract class GoodBase implements Good {
 	}
 	
 	/**
+	 * Get the quantity
+	 * @return the item quantity
+	 */
+	protected int getQuantity() {
+		return quantity;
+	}
+	
+	/**
 	 * Gets the description
 	 * @return
 	 */
 	protected String getDescription() {
 		return description;
+	}
+
+	/**
+	 * Rounds up to the nearest 0.05
+	 * @param value the value to round
+	 * @return the rounded value
+	 */
+	public BigDecimal round(BigDecimal value) {
+		BigDecimal divided = value.divide(ROUND_INCREMENT, 0, RoundingMode.UP);
+		BigDecimal result = divided.multiply(ROUND_INCREMENT);
+		return result;
 	}
 	
 	@Override
@@ -63,17 +88,6 @@ public abstract class GoodBase implements Good {
 		}
 		sb.append(" ").append(description).append(": ").append(getTaxedPrice());
 		return sb.toString();
-	}
-	
-	/**
-	 * Rounds up to the nearest 0.05
-	 * @param value the value to round
-	 * @return the rounded value
-	 */
-	public BigDecimal round(BigDecimal value) {
-		BigDecimal divided = value.divide(ROUND_INCREMENT, 0, RoundingMode.UP);
-		BigDecimal result = divided.multiply(ROUND_INCREMENT);
-		return result;
 	}
 	
 }

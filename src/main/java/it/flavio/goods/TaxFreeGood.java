@@ -20,7 +20,7 @@ public class TaxFreeGood extends GoodBase implements Good {
 	@Override
 	public BigDecimal getSalesTaxes() {
 		BigDecimal taxToApply = isImported() ? Constants.IMPORTED_SALES_TAX_PCT : BigDecimal.ZERO;
-		BigDecimal deltaPrice = round(taxToApply.multiply(getRawPrice()));
+		BigDecimal deltaPrice = round(BigDecimal.valueOf(getQuantity()).multiply(taxToApply).multiply(getRawPrice()));
 		return deltaPrice;
 	}
 

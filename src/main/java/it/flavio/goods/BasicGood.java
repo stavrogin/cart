@@ -21,7 +21,7 @@ public class BasicGood extends GoodBase implements Good {
 	@Override
 	public BigDecimal getSalesTaxes() {
 		BigDecimal taxToApply = isImported() ? BASIC_SALES_TAX_PCT.add(Constants.IMPORTED_SALES_TAX_PCT) : BASIC_SALES_TAX_PCT;
-		BigDecimal deltaPrice = round(taxToApply.multiply(getRawPrice()));
+		BigDecimal deltaPrice = round(BigDecimal.valueOf(getQuantity()).multiply(taxToApply).multiply(getRawPrice()));
 		return deltaPrice;
 	}
 

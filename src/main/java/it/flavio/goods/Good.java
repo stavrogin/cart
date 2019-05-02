@@ -1,3 +1,4 @@
+
 package it.flavio.goods;
 
 import java.math.BigDecimal;
@@ -7,7 +8,13 @@ import java.math.BigDecimal;
  * @author flavio
  */
 public interface Good {
-
+	
+	/**
+	 * Sets the item quantity
+	 * @param the item quantity
+	 */
+	void setQuantity(int quantity);
+	
 	/**
 	 * Sets the item description
 	 * @param the item description
