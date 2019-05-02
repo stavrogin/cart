@@ -2,8 +2,6 @@ package it.flavio.goods;
 
 import java.math.BigDecimal;
 
-import it.flavio.cart.constants.Constants.Category;
-
 /**
  * Interface representing a good
  * @author flavio
@@ -11,11 +9,11 @@ import it.flavio.cart.constants.Constants.Category;
 public interface Good {
 
 	/**
-	 * Sets the category (e.g.: medical)
-	 * @param category the good category
+	 * Sets the item description
+	 * @param the item description
 	 */
-	void setCategory(Category category);
-	
+	void setDescription(String description);
+
 	/**
 	 * Sets the imported flag
 	 * @param true if the good has been imported; false otherwise
@@ -33,5 +31,11 @@ public interface Good {
 	 * @return the taxed price
 	 */
 	BigDecimal getTaxedPrice();
+	
+	/**
+	 * Gets the sales taxes
+	 * @return the sales taxes
+	 */
+	BigDecimal getSalesTaxes();
 	
 }

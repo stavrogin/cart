@@ -15,10 +15,15 @@ public class BasicGood extends GoodBase implements Good {
 	
 	@Override
 	public BigDecimal getTaxedPrice() {
+		BigDecimal taxedPrice = getSalesTaxes().add(getRawPrice());
+		return taxedPrice;
+	}
+
+	@Override
+	public BigDecimal getSalesTaxes() {
 		BigDecimal taxToApply = isImported() ? BASIC_SALES_TAX_PCT.add(Constants.IMPORTED_SALES_TAX_PCT) : BASIC_SALES_TAX_PCT;
 		BigDecimal deltaPrice = taxToApply.multiply(getRawPrice()).setScale(2, RoundingMode.HALF_UP);
-		BigDecimal taxedPrice = deltaPrice.add(getRawPrice());
-		return taxedPrice;
+		return deltaPrice;
 	}
 
 }

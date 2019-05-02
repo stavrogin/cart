@@ -17,11 +17,11 @@ public class GoodFactory {
 	 * @param rawPrice the tax-free price
 	 * @return the correct good implementation
 	 */
-	public static Good getGood(Category category, boolean imported, BigDecimal rawPrice) {
+	public static Good getGood(Category category, boolean imported, BigDecimal rawPrice, String description) {
 		Good good = getGoodByCategory(category);
+		good.setDescription(description);
 		good.setImported(imported);
 		good.setRawPrice(rawPrice);
-		good.setCategory(category);
 		return good;
 	}
 	

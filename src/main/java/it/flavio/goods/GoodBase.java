@@ -2,23 +2,21 @@ package it.flavio.goods;
 
 import java.math.BigDecimal;
 
-import it.flavio.cart.constants.Constants.Category;
-
 /**
  * Abstract class to keep the behavior common to all goods
  * @author flavio
  */
 public abstract class GoodBase implements Good {
 
-	private Category category;
+	private String description;
 	private BigDecimal rawPrice;
 	private boolean imported;
 	
 	@Override
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
+
 	@Override
 	public void setRawPrice(BigDecimal rawPrice) {
 		this.rawPrice = rawPrice;
@@ -43,6 +41,25 @@ public abstract class GoodBase implements Good {
 	 */
 	protected boolean isImported() {
 		return imported;
+	}
+	
+	/**
+	 * Gets the description
+	 * @return
+	 */
+	protected String getDescription() {
+		return description;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("1");
+		if (imported) {
+			sb.append(" imported");
+		}
+		sb.append(" ").append(description).append(": ").append(getTaxedPrice());
+		return sb.toString();
 	}
 	
 }
