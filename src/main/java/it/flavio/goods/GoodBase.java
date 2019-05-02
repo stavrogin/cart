@@ -1,12 +1,15 @@
 package it.flavio.goods;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Abstract class to keep the behavior common to all goods
  * @author flavio
  */
 public abstract class GoodBase implements Good {
+	
+	private static final BigDecimal ROUND_INCREMENT = new BigDecimal("0.05");
 
 	private String description;
 	private BigDecimal rawPrice;
@@ -60,6 +63,17 @@ public abstract class GoodBase implements Good {
 		}
 		sb.append(" ").append(description).append(": ").append(getTaxedPrice());
 		return sb.toString();
+	}
+	
+	/**
+	 * Rounds up to the nearest 0.05
+	 * @param value the value to round
+	 * @return the rounded value
+	 */
+	public BigDecimal round(BigDecimal value) {
+		BigDecimal divided = value.divide(ROUND_INCREMENT, 0, RoundingMode.UP);
+		BigDecimal result = divided.multiply(ROUND_INCREMENT);
+		return result;
 	}
 	
 }

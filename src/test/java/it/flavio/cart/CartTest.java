@@ -45,7 +45,7 @@ public class CartTest {
 	public void evaluateInput3() {
 		goods.add(GoodFactory.getGood(Category.OTHER, true, new BigDecimal("27.99"), "bottle of perfume"));
 		goods.add(GoodFactory.getGood(Category.OTHER, false, new BigDecimal("18.99"), "bottle of perfume"));
-		goods.add(GoodFactory.getGood(Category.MEDICAL, false, new BigDecimal("9.85"), "headache pills"));
+		goods.add(GoodFactory.getGood(Category.MEDICAL, false, new BigDecimal("9.75"), "headache pills"));
 		goods.add(GoodFactory.getGood(Category.FOOD, true, new BigDecimal("11.25"), "chocolates"));
 		
 		Cart cart = new Cart(goods);

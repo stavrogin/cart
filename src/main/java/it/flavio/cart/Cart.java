@@ -1,6 +1,7 @@
 package it.flavio.cart;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import it.flavio.goods.Good;
@@ -29,6 +30,8 @@ public class Cart {
 			salesTaxes = salesTaxes.add(g.getSalesTaxes());
 			total = total.add(g.getTaxedPrice());
 		}
+		salesTaxes = salesTaxes.setScale(2, RoundingMode.HALF_UP);
+		total = total.setScale(2, RoundingMode.HALF_UP);
 	}
 	
 	/**
