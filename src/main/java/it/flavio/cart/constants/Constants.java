@@ -1,7 +1,6 @@
 package it.flavio.cart.constants;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
  * Projects constants are defined here
