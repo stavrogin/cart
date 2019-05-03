@@ -10,7 +10,7 @@ import java.math.RoundingMode;
  */
 public class Constants {
 
-	public static final BigDecimal IMPORTED_SALES_TAX_PCT = new BigDecimal("0.05");
+	public static final BigDecimal IMPORTED_SALES_TAX_PCT = BigDecimal.valueOf(0.05);
 
 	public enum Category {
 		BOOK(true), FOOD(true), MEDICAL(true), OTHER(false);
