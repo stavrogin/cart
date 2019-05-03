@@ -15,6 +15,12 @@ public abstract class GoodBase implements Good {
 	private BigDecimal rawPrice;
 	private boolean imported;
 	private int quantity;
+	
+	@Override
+	public BigDecimal getTaxedPrice() {
+		BigDecimal taxedPrice = getSalesTaxes().add(getRawPrice());
+		return taxedPrice;
+	}
 
 	@Override
 	public void setQuantity(int quantity) {

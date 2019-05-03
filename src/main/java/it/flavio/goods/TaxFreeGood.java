@@ -12,12 +12,6 @@ import it.flavio.cart.constants.Constants;
 public class TaxFreeGood extends GoodBase implements Good {
 
 	@Override
-	public BigDecimal getTaxedPrice() {
-		BigDecimal taxedPrice = getSalesTaxes().add(getRawPrice());
-		return taxedPrice;
-	}
-
-	@Override
 	public BigDecimal getSalesTaxes() {
 		BigDecimal taxToApply = isImported() ? Constants.IMPORTED_SALES_TAX_PCT : BigDecimal.ZERO;
 		BigDecimal deltaPrice = round(BigDecimal.valueOf(getQuantity()).multiply(taxToApply).multiply(getRawPrice()));
