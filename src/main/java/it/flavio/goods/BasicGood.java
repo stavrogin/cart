@@ -10,7 +10,7 @@ import it.flavio.cart.constants.Constants;
  */
 public class BasicGood extends GoodBase implements Good {
 
-	private static final BigDecimal BASIC_SALES_TAX_PCT = new BigDecimal("0.10");
+	private static final BigDecimal BASIC_SALES_TAX_PCT = BigDecimal.valueOf(0.10);
 	
 	@Override
 	public BigDecimal getTaxedPrice() {
