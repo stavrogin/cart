@@ -9,7 +9,7 @@ import java.math.RoundingMode;
  */
 public abstract class GoodBase implements Good {
 	
-	private static final BigDecimal ROUND_INCREMENT = new BigDecimal("0.05");
+	private static final BigDecimal ROUND_INCREMENT = BigDecimal.valueOf(0.05);
 
 	private String description;
 	private BigDecimal rawPrice;
